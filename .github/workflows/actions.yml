@@ -11,12 +11,5 @@ jobs:
       - name: checkout repo content
         uses: actions/checkout@v2
 
-      - name: setup python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11' 
-
       - name: execute py script # run main.py
-        env:
-          SOME_SECRET: ${{ secrets.SOME_SECRET }}
         run: python main.py 
