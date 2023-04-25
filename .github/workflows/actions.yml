@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Run a one-line script
+      - name: printout
         run: echo 'Hello, world!'
 
 
