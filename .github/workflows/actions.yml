@@ -1,7 +1,8 @@
 name: Cron job
 
 on:
-  push
+  schedule:
+    - cron: "*/5 * * * *"
 
 jobs:
   cron:
@@ -9,6 +10,6 @@ jobs:
 
     steps:
       - name: printout
-        run: echo 'Hello, world!'
+        run: echo 'Hello, world2!'
 
 
