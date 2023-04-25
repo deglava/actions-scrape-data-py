@@ -5,11 +5,8 @@ on:
     - cron: '*/1 * * * *'
 
 jobs: 
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout repo content
-        uses: actions/checkout@v2
-
       - name: execute py script # run main.py
-        run: python main.py 
+        run: echo "Test" 
