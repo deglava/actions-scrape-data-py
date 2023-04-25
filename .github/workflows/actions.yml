@@ -1,6 +1,6 @@
    # This is a basic workflow to help you get started with Actions
 
-name: First Cron Job2
+name: First Cron Job3
 
        # Controls when the workflow will run
 on:
@@ -19,4 +19,4 @@ jobs:
     steps:
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+        run: echo "Hello, world!""
