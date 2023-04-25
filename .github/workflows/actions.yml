@@ -1,14 +1,3 @@
-name: printout1
 
-on:
-  schedule:
-    - cron: "* * * * *"
-
-jobs: 
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: printout  
-        run: echo "tedrr"
 
 
