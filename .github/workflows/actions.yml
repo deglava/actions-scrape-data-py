@@ -8,5 +8,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+
+
       - name: execute py script # run main.py
-        run: echo "Test2" 
+        run: python main.py 
