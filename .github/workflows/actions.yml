@@ -11,5 +11,8 @@ jobs:
     steps:
       - name: printout
         run: echo 'Hello, world2!'
+      - name: Set cron schedule
+        uses: gr2m/set-cron-schedule-action@v2.0.2
+
 
 
