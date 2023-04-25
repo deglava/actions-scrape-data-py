@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v2 
 
 
-      - name: echo  
-        run: echo Test5
+      - name: printout  
+        run: echo "tedrr"
 
 
