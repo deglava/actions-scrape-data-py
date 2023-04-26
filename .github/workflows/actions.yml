@@ -1,6 +1,7 @@
 name: Cron job
 
-on: push
+on: 
+  push:
   schedule:
     - cron: "*/5 * * * *"
 
