@@ -1,50 +1,40 @@
 #import logging
 #import logging.handlers
-#import os
+import os
 
 #import requests
 import csv
 import yfinance as yf
 from datetime import datetime
 
-fields = ['Date', 'Stock', 'Price']
-filename = 'ctockprice.csv'
+headers = ['Date', 'Stock', 'Price']
+filename = 'stockprice.csv'
 
 t = yf.Tickers('msft aapl brk.a meta nvda tsla')
 
-# logger = logging.getLogger(__name__)
-# logger.setLevel(logging.DEBUG)
-# logger_file_handler = logging.handlers.RotatingFileHandler(
-#     "status.log",
-#     maxBytes=1024 * 1024,
-#     backupCount=1,
-#     encoding="utf8",
-# )
-# formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-# logger_file_handler.setFormatter(formatter)
-# logger.addHandler(logger_file_handler)
-
-# try:
-#     SOME_SECRET = os.environ["SOME_SECRET"]
-# except KeyError:
-#     SOME_SECRET = "Token not available!"
-#     #logger.info("Token not available!")
-#     #raise
-
+def write_to_excel(rows):
+    skip_headers = False
+    if os.path.isfile(filename):
+        skip_headers = True
+    with open (filename, 'a', newline="") as csvfile:
+        if skip_headers: 
+            csvwriter = csv.writer(csvfile)       
+        else:
+           csvwriter = csv.writer(csvfile)
+           csvwriter.writerow(headers) 
+        csvwriter.writerows(rows)
 
 if __name__ == "__main__":
-    print("MSFT current price: " + str(datetime.now()) + " is $" + str(t.tickers['MSFT'].info['currentPrice']))
-    rows = [[str(datetime.now()), 'AAPL', str(t.tickers['AAPL'].info['currentPrice'])],
+    date_format = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    print("MSFT current price: " + "$" + str(date_format) + " is $" + str(t.tickers['MSFT'].info['currentPrice']))
+    
+    rows = [[str(date_format), 'AAPL', "$" + str(t.tickers['AAPL'].info['currentPrice'])],
+            [str(date_format), 'META', "$" + str(t.tickers['META'].info['currentPrice'])],
+            [str(date_format), 'MSFT', "$" + str(t.tickers['MSFT'].info['currentPrice'])],
+            [str(date_format), 'NVDA', "$" + str(t.tickers['NVDA'].info['currentPrice'])],
+            [str(date_format), 'TSLA', "$" + str(t.tickers['TSLA'].info['currentPrice'])]]
 
-            [str(datetime.now()), 'META', str(t.tickers['META'].info['currentPrice'])],
-            [str(datetime.now()), 'MSFT', str(t.tickers['MSFT'].info['currentPrice'])],
-            [str(datetime.now()), 'NVDA', str(t.tickers['NVDA'].info['currentPrice'])],
-            [str(datetime.now()), 'TSLA', str(t.tickers['TSLA'].info['currentPrice'])]]
-
-    with open (filename, 'w') as csvfile:
-        csvwriter = csv.writer(csvfile)
-        csvwriter.writerow(fields)
-        csvwriter.writerows(rows)
+    write_to_excel(rows)
     #logger.info(f"Token value: {SOME_SECRET}")
     # print("check")
     # r = requests.get('https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE')
