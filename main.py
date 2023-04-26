@@ -1,8 +1,5 @@
-#import logging
-#import logging.handlers
 import os
 
-#import requests
 import csv
 import yfinance as yf
 from datetime import datetime
