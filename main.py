@@ -3,6 +3,7 @@ import os
 import csv
 import yfinance as yf
 from datetime import datetime
+import pytz
 
 headers = ['Date', 'Stock', 'Price']
 filename = 'stockprice.csv'
@@ -22,7 +23,7 @@ def write_to_excel(rows):
         csvwriter.writerows(rows)
 
 if __name__ == "__main__":
-    date_format = datetime.now(EST).strftime("%d/%m/%Y %H:%M:%S")
+    date_format = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
     print("MSFT current price: " + "$" + str(date_format) + " is $" + str(t.tickers['MSFT'].info['currentPrice']))
     
     rows = [[str(date_format), 'AAPL', "$" + str(t.tickers['AAPL'].info['currentPrice'])],
