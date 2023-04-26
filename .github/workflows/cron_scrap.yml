@@ -21,7 +21,7 @@ jobs:
       - name: install python packages
         run: pip install yfinance
           
-      - name: execute py script # run main.py
+      - name: execute py script 
         run: python main.py
           
       - name: commit files
