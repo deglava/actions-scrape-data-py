@@ -1,17 +1,17 @@
-name: Cron job
+# name: Cron job
 
-on: 
-  push:
-  schedule:
-    - cron: "*/6 * * * *"
+# on: 
+#   push:
+#   schedule:
+#     - cron: "*/6 * * * *"
 
-jobs:
-  cron:
-    runs-on: ubuntu-latest
+# jobs:
+#   cron:
+#     runs-on: ubuntu-latest
 
-    steps:
-      - name: printout
-        run: echo 'Hello, world2!'
+#     steps:
+#       - name: printout
+#         run: echo 'Hello, world2!'
 
 
 
