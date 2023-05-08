@@ -24,7 +24,7 @@ jobs:
         run: pip install yfinance
           
       - name: execute py script 
-        run: python src/main.py
+        run: python main.py
           
       - name: commit files
         run: |
