@@ -6,7 +6,7 @@ from datetime import datetime
 import pytz
 
 headers = ['Date', 'Stock', 'Price']
-filename = 'stockprice.csv'
+filename = '../stockprice2.csv'
 
 t = yf.Tickers('msft aapl brk.a meta nvda tsla')
 
@@ -33,12 +33,3 @@ if __name__ == "__main__":
             [str(date_format), 'TSLA', "$" + str(t.tickers['TSLA'].info['currentPrice'])]]
 
     write_to_excel(rows)
-    #logger.info(f"Token value: {SOME_SECRET}")
-    # print("check")
-    # r = requests.get('https://weather.talkpython.fm/api/weather/?city=Berlin&country=DE')
-    # if r.status_code == 200:
-    #     data = r.json()
-    #     temperature = data["forecast"]["temp"]
-    #     print("check2 " + str(temperature))
-    #     print("yahoo" + str(t.tickers['MSFT'].info))
-    #     logger.info(f'Weather in Berlin: {temperature}')
