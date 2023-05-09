@@ -6,7 +6,7 @@ from datetime import datetime
 import pytz
 
 headers = ['Date', 'Stock', 'Price']
-filename = '../stockprice.csv'
+filename = 'stockprice.csv'
 
 t = yf.Tickers('msft aapl brk.a meta nvda tsla')
 
