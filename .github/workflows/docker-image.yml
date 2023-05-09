@@ -13,6 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    
+    
+    
     - uses: actions/checkout@v3
     
     - name: Set up Docker Buildx
@@ -25,12 +28,15 @@ jobs:
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         
-    - name: Build and push Docker images
-      run: | 
-        docker build . --file Dockerfile -- tag alekskb/yahoo-stocks
-    -    
-      run: |
-        docker push alekskb/yahoo-stocks
+        
+    - 
+      name: Build and push
+      uses: docker/build-push-action@v4
+      with:
+        context: .
+        push: true
+        tags: alekskb/yahoo-stocks:latest
+
       
  
 
