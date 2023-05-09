@@ -7,4 +7,4 @@ COPY src /src
 
 RUN pip install yfinance
 
-ENTRYPOINT [ "python", "main.py"]
+CMD [ "python", "main.py"]
