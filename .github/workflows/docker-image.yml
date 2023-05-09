@@ -32,8 +32,6 @@ jobs:
         push: true
         tags: alekskb/yahoo-stocks:latest
         
-    - run: |
-        docker pull alekskb/yahoo-stocks:latest
 
       
  
