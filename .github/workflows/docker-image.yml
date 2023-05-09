@@ -26,11 +26,11 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
         
     - name: Build and push Docker images
-      uses: docker/build-push-action@v4.0.0
-      with:
-        context: .
-        push: true
-        tags: alekskb/yahoo-stocks
+      run: | 
+        docker build . --file Dockerfile -- tag alekskb/yahoo-stocks
+    -    
+      run: |
+        docker push alekskb/yahoo-stocks
       
  
 
