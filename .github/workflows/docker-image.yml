@@ -29,6 +29,10 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     
     - run: |
+        docker tag deglava/actions-scrape-data-py alekskb/yahoo-stocks
+
+    
+    - run: |
         docker ps -a
         
     - 
