@@ -2,8 +2,8 @@ name: scrapes yahoo
 
 on:
   push:
-  schedule:
-    - cron: '*/15 * * * *'
+  #schedule:
+    #- cron: '*/15 * * * *'
 
 permissions: write-all
 
